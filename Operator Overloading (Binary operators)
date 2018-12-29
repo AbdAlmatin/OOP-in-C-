@@ -1,0 +1,68 @@
+#include <iostream>
+using namespace std;
+int a, b;
+class Complex_Number{
+private:
+    int x, y;
+    string name;
+public:
+    Complex_Number() { name = "default";}
+    Complex_Number(string s) : name(s){}
+    Complex_Number(int a, int b, string s) : x(a), y(b), name(s) {}
+    void get_x_y() {cout << x << ' ' << y << endl;}
+    Complex_Number operator+(Complex_Number a);
+    Complex_Number operator+(int i);
+    Complex_Number operator=(Complex_Number a);
+    Complex_Number operator*(Complex_Number a);
+    Complex_Number operator/(Complex_Number a);
+};
+
+
+Complex_Number Complex_Number::operator+(Complex_Number a)
+{
+    cout << name << ' ';
+    Complex_Number tmp;
+    cout << this->x << ' ' << this->y << endl;
+    tmp.x = x + a.x, tmp.y = y + a.y;
+    return tmp;
+}
+
+Complex_Number Complex_Number::operator+(int i)
+{
+    Complex_Number tmp;
+    tmp.x = x + i, tmp.y = y + i;
+
+    return tmp;
+}
+
+Complex_Number Complex_Number::operator=(Complex_Number a)
+{
+    x = a.x, y = a.y;
+    return *this;
+}
+
+Complex_Number Complex_Number::operator*(Complex_Number a)
+{
+    Complex_Number tmp;
+    tmp.x = a.x * x;
+    tmp.y = a.y * y;
+    return tmp;
+}
+
+Complex_Number Complex_Number::operator/(Complex_Number a)
+{
+    Complex_Number tmp;
+    tmp.x = (x / a.x);
+    tmp.y = (y / a.y);
+
+    return tmp;
+}
+
+int main()
+{
+    Complex_Number o1(3, 4, "o1"), o2(4, 4, "o2"), o3("o3");
+   //Do what you want to do with +, -, /, *, = operator.
+
+    return 0;
+}
+
