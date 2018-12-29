@@ -1,2 +1,2 @@
 # OOP-in-CPP
-I'll uploading some basic codes of OOP concepts repositry.
+I'll be uploading some basic codes of OOP concepts repositry.
