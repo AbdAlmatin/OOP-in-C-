@@ -1,0 +1,68 @@
+#include <iostream>
+using namespace std;
+int a, b;
+class Complex_Number{
+private:
+    int x, y;
+    string name;
+public:
+    Complex_Number() { name = "default";}
+    Complex_Number(string s) : name(s){}
+    Complex_Number(int a, int b, string s) : x(a), y(b), name(s) {}
+    void get_x_y() {cout << x << ' ' << y << endl;}
+
+    Complex_Number operator++(); //pre
+    Complex_Number operator--(); //pre
+    Complex_Number operator++(int); // post
+    Complex_Number operator--(int); //post
+};
+
+
+
+Complex_Number Complex_Number::operator++()
+{
+    x++;
+    y++;
+    return *this;
+}
+
+Complex_Number Complex_Number::operator--()
+{
+    x--;
+    y--;
+    return *this;
+}
+
+Complex_Number Complex_Number::operator++(int)
+{
+    Complex_Number tmp;
+    tmp = *this;
+    x++;
+    y++;
+    return tmp;
+}
+
+Complex_Number Complex_Number::operator--(int)
+{
+    Complex_Number tmp;
+    tmp = *this;
+    x--;
+    y--;
+    return tmp;
+}
+
+
+int main()
+{
+    Complex_Number o1(3, 4, "o1"), o2(4, 4, "o2"), o3(2, 3, "o3");
+   
+
+    (o2--).get_x_y();
+    o3 = o2--;
+    o3.get_x_y();
+    o2.get_x_y();
+
+
+    return 0;
+}
+
